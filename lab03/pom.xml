@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.cs61b</groupId>
+    <artifactId>lab03</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <library.path>${project.basedir}/../../library-sp25</library.path>
+    </properties>
+
+    <build>
+        <!-- 强行指定 CS61B 的非标准目录结构 -->
+        <sourceDirectory>src</sourceDirectory>
+        <!-- 如果 tests 目录不存在，Maven 会忽略，不会报错 -->
+        <testSourceDirectory>tests</testSourceDirectory>
+    </build>
+
+    <dependencies>
+        <!-- ====== 1. CS61B 核心库 (本地引用) ====== -->
+        <dependency>
+            <groupId>cs61b</groupId>
+            <artifactId>algs4</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${library.path}/algs4.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>cs61b</groupId>
+            <artifactId>ucb</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${library.path}/ucb.jar</systemPath>
+        </dependency>
+
+        <!-- ====== 2. 测试库 (直接从 Maven 中央仓库下载更省心) ====== -->
+        <!-- 如果你想用 library-sp25 里的 junit 也可以配置，但自动下载通常报错更少 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.truth</groupId>
+            <artifactId>truth</artifactId>
+            <version>1.1.3</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+</project>
