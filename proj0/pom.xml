@@ -32,6 +32,13 @@
         </dependency>
         <dependency>
             <groupId>cs61b</groupId>
+            <artifactId>jh61b</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${library.path}/jh61b.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>cs61b</groupId>
             <artifactId>ucb</artifactId>
             <version>1.0</version>
             <scope>system</scope>
