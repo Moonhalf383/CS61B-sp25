@@ -14,97 +14,99 @@ import java.util.Scanner;
 
 public class Puzzle {
 
-    static final File ANSWER_FILE = new File("src/puzzle/answer.txt");
-    static int guessThis = 0;
+  static final File ANSWER_FILE = new File("src/puzzle/answer.txt");
+  static int guessThis = 0;
 
-    public static int puzzle() {
-        int answer = loadAnswer(ANSWER_FILE);
+  public static int puzzle() {
+    int answer = loadAnswer(ANSWER_FILE);
 
-        if (isCorrect(answer)) {
-            System.out.println("That's correct! Nice work!");
-            return answer;
-        }
-
-        Random r = new Random();
-        r.setSeed(1678_971_254);
-        for (int i = 0; i < 1323; i++) {
-            if (r.nextInt() == -2034104197) {
-                erroringMethod(r);
-            }
-        }
-        return 0;
+    if (isCorrect(answer)) {
+      System.out.println("That's correct! Nice work!");
+      return answer;
     }
 
-    /** Loads an answer from the given file.
-     *  Note: Scanner behaves very similarly to the In class. */
-    public static int loadAnswer(File file) {
-        Scanner s;
-        try {
-            s = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        while (s.hasNextLine()) {
-            if (s.hasNextInt()) {
-                return s.nextInt();
-            }
-            s.nextLine();
-        }
-        throw new RuntimeException("Could not find answer in " + file);
+    Random r = new Random();
+    r.setSeed(1678_971_254);
+    for (int i = 0; i < 1323; i++) {
+      if (r.nextInt() == -2034104197) {
+        erroringMethod(r);
+      }
     }
+    return 0;
+  }
 
-    private static boolean isCorrect(int answer) {
-        return ("" + answer).hashCode() == -32772622;
+  /**
+   * Loads an answer from the given file.
+   * Note: Scanner behaves very similarly to the In class.
+   */
+  public static int loadAnswer(File file) {
+    Scanner s;
+    try {
+      s = new Scanner(file);
+    } catch (FileNotFoundException e) {
+      throw new RuntimeException(e);
     }
-
-    private static void erroringMethod(Random r) {
-        String s = null;
-        System.out.println("""
-                Hmm, what is the value of `guessThis` when the out-of-bounds exception is thrown?
-                Replace the first line of `answer.txt` accordingly.
-                Hint: Use an exception breakpoint.""");
-        while (r.nextInt(100) != 10) {
-            guessThis += r.nextInt();
-            s = LOTS_OF_STRINGS[r.nextInt(LOTS_OF_STRINGS.length + 1)];
-        }
+    while (s.hasNextLine()) {
+      if (s.hasNextInt()) {
+        return s.nextInt();
+      }
+      s.nextLine();
     }
+    throw new RuntimeException("Could not find answer in " + file);
+  }
 
-    public static void main(String[] args) {
-        puzzle();
+  private static boolean isCorrect(int answer) {
+    return ("" + answer).hashCode() == -32772622;
+  }
+
+  private static void erroringMethod(Random r) {
+    String s = null;
+    System.out.println("""
+        Hmm, what is the value of `guessThis` when the out-of-bounds exception is thrown?
+        Replace the first line of `answer.txt` accordingly.
+        Hint: Use an exception breakpoint.""");
+    while (r.nextInt(100) != 10) {
+      guessThis += r.nextInt();
+      s = LOTS_OF_STRINGS[r.nextInt(LOTS_OF_STRINGS.length + 1)];
     }
+  }
 
-    private static final String[] LOTS_OF_STRINGS = {
-            "According",
-            "to",
-            "all",
-            "known",
-            "laws",
-            "of",
-            "aviation,",
-            "there",
-            "is",
-            "no",
-            "way",
-            "a",
-            "bee",
-            "should",
-            "be",
-            "able",
-            "to",
-            "fly.",
-            "Its",
-            "wings",
-            "are",
-            "too",
-            "small",
-            "to",
-            "get",
-            "its",
-            "fat",
-            "little",
-            "body",
-            "off",
-            "the",
-            "ground."
-    };
+  public static void main(String[] args) {
+    puzzle();
+  }
+
+  private static final String[] LOTS_OF_STRINGS = {
+      "According",
+      "to",
+      "all",
+      "known",
+      "laws",
+      "of",
+      "aviation,",
+      "there",
+      "is",
+      "no",
+      "way",
+      "a",
+      "bee",
+      "should",
+      "be",
+      "able",
+      "to",
+      "fly.",
+      "Its",
+      "wings",
+      "are",
+      "too",
+      "small",
+      "to",
+      "get",
+      "its",
+      "fat",
+      "little",
+      "body",
+      "off",
+      "the",
+      "ground."
+  };
 }

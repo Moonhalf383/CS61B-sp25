@@ -37,6 +37,13 @@
             <scope>system</scope>
             <systemPath>${library.path}/ucb.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>cs61b</groupId>
+            <artifactId>jh61b</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${library.path}/jh61b.jar</systemPath>
+        </dependency>
 
         <!-- ====== 2. 测试库 (直接从 Maven 中央仓库下载更省心) ====== -->
         <!-- 如果你想用 library-sp25 里的 junit 也可以配置，但自动下载通常报错更少 -->
