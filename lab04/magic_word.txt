@@ -1,0 +1,4 @@
+git_exercise_1_password
+git_exercise_2.1_password : matcha
+git_exercise_2.2_password : diet coke 
+git_exercise_2.3_password : boba

@@ -150,4 +150,5 @@ public class LinkedListDeque61BTest {
     lld1.removeLast();
     assertThat(lld1.toList()).containsExactly(0).inOrder();
   }
+
 }
